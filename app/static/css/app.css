@@ -4,4 +4,11 @@ body {
 
 .pics > li {
     list-style-type: none;
+
+}
+
+#layout > .pics {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;    
 }
