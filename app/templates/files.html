@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+{% if images %}
+<ul class= "pics">
+{% for image in images %}
+<li><img src=" {{url_for('static', filename="uploads/"+ image) }} " alt = "Picture" height="100" weight="100"></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

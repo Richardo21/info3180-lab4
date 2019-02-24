@@ -15,6 +15,22 @@ from app.forms import UploadForm
 # Routing for your application.
 ###
 
+def get_uploaded_images():
+    #rootdir = os.getcwd()
+    #print rootdir
+
+    y = []
+    for subdir, dirs, files in os.walk(app.config['UPLOAD_FOLDER']):
+        for file in files:
+            if not file.startswith('.'):
+                y.append(file)
+    return y 
+
+
+@app.route('/files')
+def files():
+    return render_template('files.html', images= get_uploaded_images())
+
 @app.route('/')
 def home():
     """Render website's home page."""
@@ -73,6 +89,8 @@ def logout():
 ###
 # The functions below should be applicable to all Flask apps.
 ###
+
+
 
 # Flash errors from the form if validation fails
 def flash_errors(form):
